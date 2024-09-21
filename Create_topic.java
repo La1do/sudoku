@@ -2,7 +2,7 @@
 import java.util.Random;
 import java.util.Scanner;
 
-public class random {
+public class Create_topic {
     private static final int GRID_SIZE = 9;
     int[][]  board = {
             {0, 0, 0, 0, 0, 0, 0, 0, 0},
