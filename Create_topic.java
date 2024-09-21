@@ -6,8 +6,7 @@ import java.util.Scanner;
 
 public class random {
     private static final int GRID_SIZE = 9;
-    public static void main(String[] args) {
-        int[][]  board = {
+    int[][]  board = {
             {0, 0, 0, 0, 0, 0, 0, 0, 0},
             {0, 0, 0, 0, 0, 0, 0, 0, 0},
             {0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -17,8 +16,8 @@ public class random {
             {0, 0, 0, 0, 0, 0, 0, 0, 0},
             {0, 0, 0, 0, 0, 0, 0, 0, 0},
             {0, 0, 0, 0, 0, 0, 0, 0, 0},
-        };
-        int[][] solve = {
+    };
+    int[][] solve = {
             {0, 0, 0, 0, 0, 0, 0, 0, 0},
             {0, 0, 0, 0, 0, 0, 0, 0, 0},
             {0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -28,8 +27,9 @@ public class random {
             {0, 0, 0, 0, 0, 0, 0, 0, 0},
             {0, 0, 0, 0, 0, 0, 0, 0, 0},
             {0, 0, 0, 0, 0, 0, 0, 0, 0},
-        };
-        int[] a = new int[GRID_SIZE];
+    };
+        
+    public static void Change(int[][] board, int[][] solve){
         Scanner scanner = new Scanner(System.in);
         randomBox1(board);
         if(SolveSudoku(board)){
