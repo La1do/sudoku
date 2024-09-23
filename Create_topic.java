@@ -15,6 +15,7 @@ public class Create_topic {
             {0, 0, 0, 0, 0, 0, 0, 0, 0},
             {0, 0, 0, 0, 0, 0, 0, 0, 0},
     };
+
     public static int[][] tmp = {
             {0, 0, 0, 0, 0, 0, 0, 0, 0},
             {0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -26,6 +27,7 @@ public class Create_topic {
             {0, 0, 0, 0, 0, 0, 0, 0, 0},
             {0, 0, 0, 0, 0, 0, 0, 0, 0},
     };
+    
     static Create_topic topic = new Create_topic();
     public static int[][] solve = tmp;
     public static void Change(){
