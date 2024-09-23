@@ -16,7 +16,7 @@ public class Create_topic {
             {0, 0, 0, 0, 0, 0, 0, 0, 0},
             {0, 0, 0, 0, 0, 0, 0, 0, 0},
     };
-    public int[][] tmp = {
+  
     public static int[][] tmp = {
             {0, 0, 0, 0, 0, 0, 0, 0, 0},
             {0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -28,7 +28,7 @@ public class Create_topic {
             {0, 0, 0, 0, 0, 0, 0, 0, 0},
             {0, 0, 0, 0, 0, 0, 0, 0, 0},
     };
-        
+          public int[][] solove = tmp; 
     public static void Change(int[][] board, int[][] solve){
         Scanner scanner = new Scanner(System.in);
         randomBox1(board);
