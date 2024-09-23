@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Create_topic {
     private static final int GRID_SIZE = 9;
-    int[][]  board = {
+    public int[][]  board = {
             {0, 0, 0, 0, 0, 0, 0, 0, 0},
             {0, 0, 0, 0, 0, 0, 0, 0, 0},
             {0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -15,7 +15,7 @@ public class Create_topic {
             {0, 0, 0, 0, 0, 0, 0, 0, 0},
             {0, 0, 0, 0, 0, 0, 0, 0, 0},
     };
-    int[][] solve = {
+    public int[][] tmp = {
             {0, 0, 0, 0, 0, 0, 0, 0, 0},
             {0, 0, 0, 0, 0, 0, 0, 0, 0},
             {0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -26,27 +26,28 @@ public class Create_topic {
             {0, 0, 0, 0, 0, 0, 0, 0, 0},
             {0, 0, 0, 0, 0, 0, 0, 0, 0},
     };
-        
-    public static void Change(int[][] board, int[][] solve){
+    Create_topic topic = new Create_topic();  
+    public static int[][] solve = tmp
+    public static void Change(){
         Scanner scanner = new Scanner(System.in);
-        randomBox1(board);
-        if(SolveSudoku(board)){
-            copySolve(solve, board);
+        randomBox1();
+        if(SolveSudoku(topic.board)){
+            copySolve(topic.tmp, topic.board);
             System.out.print("Nhap che do choi: ");
             String chedo = scanner.nextLine();
             switch(chedo){
-                case "easy" -> randomSudoku(board, 41, 4);
-                case "medium" -> randomSudoku(board, 47, 3);
-                case "hard" -> randomSudoku(board, 51, 3);
-                case "master" -> randomSudoku(board, 58, 2);
-                case "GOD" -> randomSudoku(board, 80, 0);
+                case "easy" -> randomSudoku(topic.board, 41, 4);
+                case "medium" -> randomSudoku(topic.board, 47, 3);
+                case "hard" -> randomSudoku(topic.board, 51, 3);
+                case "master" -> randomSudoku(topic.board, 58, 2);
+                case "GOD" -> randomSudoku(topic.board, 80, 0);
             }
             
         }  
-        printBoard(board);
+        printBoard();
         
     }
-    private static void printBoard(int[][] board){
+    private static void printBoard(){
         for(int i=0; i<GRID_SIZE; i++){
                 if(i%3==0 && i!=0){
                     System.out.println("-------------------");
@@ -55,29 +56,29 @@ public class Create_topic {
                     if(j%3==0 && j!=0){
                         System.out.print("|");
                     }
-                    System.out.print(board[i][j] + " ");
+                    System.out.print(topic.board[i][j] + " ");
                 }
                 System.out.println();
             }
     }
     
-    private static void randomBox1(int[][] board){
+    private static void randomBox1(){
         Random random = new Random();
         for(int i=0; i<3; i++){
             for(int j=0; j<3; j++){
                 int temp;
                 do{
                     temp = random.nextInt(9) + 1;
-                }while(checkBox(board, temp, i, j));
+                }while(checkBox(topic.board, temp, i, j));
                 board[i][j] = temp;
             }
         }
     }
     
-    private static void copySolve(int[][] solve, int[][] board){
+    private static void copySolve(int[][] tmp, int[][] board){
         for(int i=0; i<GRID_SIZE; i++){
             for(int j=0; j<GRID_SIZE; j++){
-                solve[i][j] = board[i][j];
+                tmp[i][j] = board[i][j];
             }
         }
     }
