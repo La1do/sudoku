@@ -35,7 +35,7 @@ public class Create_topic {
         if(SolveSudoku(board)){
             copySolve(solve, board);
             System.out.print("Nhap che do choi: ");
-            String chedo = scanner.nextLine();
+            String chedo = "medium";
             switch(chedo){
                 case "easy" -> randomSudoku(board, 41, 4);
                 case "medium" -> randomSudoku(board, 47, 3);
