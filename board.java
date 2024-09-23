@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class board extends JPanel {
+
     public final int Dimention = 9;
     public final int SIZE = 520;
     public final int SQ_SIZE = SIZE / 9;
@@ -13,10 +14,14 @@ public class board extends JPanel {
     }
 
     public void paint(Graphics g) {
-        Graphics2D g2d = (Graphics2D) g;
-        super.paint(g);
 
-        //rows
+        super.paint(g);
+        DrawBoard(g);
+        Draw_Sudoku_Quest(g);
+
+    }
+    void DrawBoard(Graphics g){
+        Graphics2D g2d = (Graphics2D) g;
         for (int i = 0; i < (Dimention + 1); i++) {
             g2d.setPaint(Color.DARK_GRAY);
             g2d.setStroke(new BasicStroke(1));
@@ -49,5 +54,27 @@ public class board extends JPanel {
         g2d.setStroke(new BasicStroke(5));
         // 50 is the arc width and height for rounded corners
         g2d.drawRoundRect(0, 0, SIZE, SIZE, 50, 50);
+
     }
+    void Draw_Sudoku_Quest(Graphics g){
+        int[][] b = new int[0][];
+        int[][] s = new int[0][];
+        Graphics2D g2d = (Graphics2D) g;
+        g2d.setPaint(Color.white);
+        Font stringFont = new Font( "SansSerif", Font.BOLD, 50);
+        g2d.setFont(stringFont);
+//        topic.Change(b, s);
+        Create_topic.Change();
+        for(int i =0 ; i <9;i ++) {
+            for(int j =0 ;j <9;j ++) {
+
+                String tmp = Integer.toString(Create_topic.topic.board[i][j]);
+                if (Create_topic.topic.board[i][j] != 0) {
+                    g2d.drawString(tmp, j * SQ_SIZE + 16, i * SQ_SIZE + SQ_SIZE - 11);
+                }
+            }
+//            g2d.drawString(tmp, i* SQ_SIZE + 16, 0* SQ_SIZE + SQ_SIZE - 11);
+        }
+    }
+
 }
