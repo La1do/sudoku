@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Create_topic {
     private static final int GRID_SIZE = 9;
-    public int[][]  board = {
+    public static int[][]  board = {
             {0, 0, 0, 0, 0, 0, 0, 0, 0},
             {0, 0, 0, 0, 0, 0, 0, 0, 0},
             {0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -15,7 +15,7 @@ public class Create_topic {
             {0, 0, 0, 0, 0, 0, 0, 0, 0},
             {0, 0, 0, 0, 0, 0, 0, 0, 0},
     };
-    public int[][] tmp = {
+    public static int[][] tmp = {
             {0, 0, 0, 0, 0, 0, 0, 0, 0},
             {0, 0, 0, 0, 0, 0, 0, 0, 0},
             {0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -26,15 +26,15 @@ public class Create_topic {
             {0, 0, 0, 0, 0, 0, 0, 0, 0},
             {0, 0, 0, 0, 0, 0, 0, 0, 0},
     };
-    Create_topic topic = new Create_topic();  
-    public static int[][] solve = tmp
+    static Create_topic topic = new Create_topic();
+    public static int[][] solve = tmp;
     public static void Change(){
         Scanner scanner = new Scanner(System.in);
         randomBox1();
         if(SolveSudoku(topic.board)){
             copySolve(topic.tmp, topic.board);
             System.out.print("Nhap che do choi: ");
-            String chedo = scanner.nextLine();
+            String chedo = "hard";
             switch(chedo){
                 case "easy" -> randomSudoku(topic.board, 41, 4);
                 case "medium" -> randomSudoku(topic.board, 47, 3);
