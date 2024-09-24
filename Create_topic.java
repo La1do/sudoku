@@ -1,9 +1,9 @@
 
 import java.util.Random;
 import java.util.Scanner;
-
+ 
 public class Create_topic {
-    private static final int GRID_SIZE = 9;
+    private static final int GRID_SIZE = 9;//kích thước bảng
     public static int[][]  board = {
             {0, 0, 0, 0, 0, 0, 0, 0, 0},
             {0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -29,7 +29,8 @@ public class Create_topic {
     };
     
     static Create_topic topic = new Create_topic();
-    public static int[][] solve = tmp;
+    public static int[][] solve = tmp; // sallow copy mảng tmp sang mảng solve vì nếu tmp thay đổi thì solve cũng có thể thay đổi
+    // hàm random số theo chế độ
     public static void Change(){
         Scanner scanner = new Scanner(System.in);
         randomBox1();
@@ -49,6 +50,7 @@ public class Create_topic {
         printBoard();
         
     }
+    // xuất bảng
     private static void printBoard(){
         for(int i=0; i<GRID_SIZE; i++){
                 if(i%3==0 && i!=0){
@@ -63,7 +65,7 @@ public class Create_topic {
                 System.out.println();
             }
     }
-    
+    // random ô 3x3 đầu tiên
     private static void randomBox1(){
         Random random = new Random();
         for(int i=0; i<3; i++){
@@ -76,7 +78,7 @@ public class Create_topic {
             }
         }
     }
-    
+    // deep copy đáp án sang mảng tmp để khi mảng board thay đổi thì tmp k thay đổi
     private static void copySolve(int[][] tmp, int[][] board){
         for(int i=0; i<GRID_SIZE; i++){
             for(int j=0; j<GRID_SIZE; j++){
@@ -84,7 +86,7 @@ public class Create_topic {
             }
         }
     }
-    
+    // kiểm tra hàng xem có bị trùng không
     private static boolean checkRow(int[][] board, int number, int row){
       for(int i = 0; i < GRID_SIZE; i++){
           if(board[row][i] == number){
@@ -93,7 +95,7 @@ public class Create_topic {
       }
       return false;
     }
-    
+    // kiểm tra cột xem có bị trùng không
     private static boolean checkColums(int[][] board, int number, int colums){
       for(int i = 0; i < GRID_SIZE; i++){
           if(board[i][colums] == number){
@@ -102,7 +104,7 @@ public class Create_topic {
       }
       return false;
     }
-    
+    // kiểm tra trong ô 
     private static boolean checkBox(int[][] board, int number, int row, int colums){
         int LocalBoxRow = row - row%3;
         int LocalBoxColums = colums - colums%3;
@@ -116,24 +118,24 @@ public class Create_topic {
         }
         return false;
     }
-    
+    // kiểm tra toàn bộ
     private static boolean checkSudoku(int[][] board, int number, int row, int colums){
         return !checkRow(board, number, row) 
                && !checkColums(board, number, colums) 
                && !checkBox(board, number, row, colums);
     }
-    
+    // viết đáp án cho board hiện thời
     private static boolean SolveSudoku(int[][] board){
         for(int i = 0; i < GRID_SIZE; i++){
             for(int j = 0; j< GRID_SIZE; j++){
                 if(board[i][j] == 0){
-                    for(int numbertotry = 1; numbertotry <= GRID_SIZE; numbertotry++){
-                        if(checkSudoku(board, numbertotry, i, j)){
+                    for(int numbertotry = 1; numbertotry <= GRID_SIZE; numbertotry++){ 
+                        if(checkSudoku(board, numbertotry, i, j)){  // thử từng số xem có phù hợp k
                             board[i][j] = numbertotry;
-                            if(SolveSudoku(board)){
+                            if(SolveSudoku(board)){ //đệ quy xem các bước tiếp theo có phù hợp so với số hiện tại không
                                 return true;
                             }
-                            else{
+                            else{ // nếu không gán lại 0 cho ô
                                 board[i][j] = 0;
                             }
                         }
@@ -144,6 +146,7 @@ public class Create_topic {
         }
         return true;
     }
+    // đếm số lượng số hiện tại trong ô
     private static int countBox(int[][] board, int row, int colums){
         int count = 0;
         int LocalBoxRow = row - row%3;
@@ -158,15 +161,16 @@ public class Create_topic {
         }
         return count;
     }
-    private static void randomSudoku(int[][] board, int ghtong, int gho){
+    // random ô trong board để xóa ngẫu nhiên
+    private static void randomSudoku(int[][] board, int gioi_han_tong, int gioi_han_o){
         int i = 0;
         int x, y;
         Random random = new Random();
-        while(i<ghtong){
+        while(i<gioi_han_tong){
             do{
                 x = random.nextInt(9);
                 y = random.nextInt(9);
-            }while(board[x][y]==0 || countBox(board, x, y)<gho+1);
+            }while(board[x][y]==0 || countBox(board, x, y)<gioi_han_o+1);
             board[x][y] = 0;
             i++;
         }
