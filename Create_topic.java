@@ -27,7 +27,7 @@ public class Create_topic {
             {0, 0, 0, 0, 0, 0, 0, 0, 0},
             {0, 0, 0, 0, 0, 0, 0, 0, 0},
     };
-    
+    public static int[] so_dem = new int[GRID_SIZE];
     static Create_topic topic = new Create_topic();
     public static int[][] solve = tmp; // sallow copy mảng tmp sang mảng solve vì nếu tmp thay đổi thì solve cũng có thể thay đổi
     // hàm random số theo chế độ
@@ -36,14 +36,13 @@ public class Create_topic {
         randomBox1();
         if(SolveSudoku(topic.board)){
             copySolve(topic.tmp, topic.board);
-            System.out.print("Nhap che do choi: ");
             String chedo = "hard";
             switch(chedo){
-                case "easy" -> randomSudoku(topic.board, 41, 4);
-                case "medium" -> randomSudoku(topic.board, 47, 3);
-                case "hard" -> randomSudoku(topic.board, 51, 3);
-                case "master" -> randomSudoku(topic.board, 58, 2);
-                case "GOD" -> randomSudoku(topic.board, 80, 0);
+                case "easy" -> randomSudoku(topic.board, 41, 4, 7);
+                case "medium" -> randomSudoku(topic.board, 47, 3, 7);
+                case "hard" -> randomSudoku(topic.board, 51, 3, 7);
+                case "master" -> randomSudoku(topic.board, 58, 2, 7);
+                case "GOD" -> randomSudoku(topic.board, 80, 0, 9);
             }
             
         }  
@@ -60,7 +59,7 @@ public class Create_topic {
                     if(j%3==0 && j!=0){
                         System.out.print("|");
                     }
-                    System.out.print(topic.board[i][j] + " ");
+                    System.out.print(topic.solve[i][j] + " ");
                 }
                 System.out.println();
             }
@@ -162,7 +161,7 @@ public class Create_topic {
         return count;
     }
     // random ô trong board để xóa ngẫu nhiên
-    private static void randomSudoku(int[][] board, int gioi_han_tong, int gioi_han_o){
+    private static void randomSudoku(int[][] board, int gioi_han_tong, int gioi_han_o, int gioi_han_so){
         int i = 0;
         int x, y;
         Random random = new Random();
@@ -170,7 +169,8 @@ public class Create_topic {
             do{
                 x = random.nextInt(9);
                 y = random.nextInt(9);
-            }while(board[x][y]==0 || countBox(board, x, y)<gioi_han_o+1);
+            }while(board[x][y]==0 || countBox(board, x, y)<gioi_han_o+1 || topic.so_dem[board[x][y]-1]>=gioi_han_so);
+            topic.so_dem[board[x][y]-1] += 1;
             board[x][y] = 0;
             i++;
         }
