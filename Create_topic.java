@@ -38,11 +38,11 @@ public class Create_topic {
             copySolve(topic.tmp, topic.board);
             String chedo = "hard";
             switch(chedo){
-                case "easy" -> randomSudoku(topic.board, 41, 4, 7);
-                case "medium" -> randomSudoku(topic.board, 47, 3, 7);
-                case "hard" -> randomSudoku(topic.board, 51, 3, 7);
-                case "master" -> randomSudoku(topic.board, 58, 2, 7);
-                case "GOD" -> randomSudoku(topic.board, 80, 0, 9);
+                case "easy" -> randomSudoku(topic.board,topic.so_dem , 41, 4, 7);
+                case "medium" -> randomSudoku(topic.board,topic.so_dem , 47, 3, 7);
+                case "hard" -> randomSudoku(topic.board,topic.so_dem , 51, 3, 7);
+                case "master" -> randomSudoku(topic.board,topic.so_dem , 58, 2, 7);
+                case "GOD" -> randomSudoku(topic.board,topic.so_dem , 80, 0, 9);
             }
             
         }  
@@ -161,7 +161,7 @@ public class Create_topic {
         return count;
     }
     // random ô trong board để xóa ngẫu nhiên
-    private static void randomSudoku(int[][] board, int gioi_han_tong, int gioi_han_o, int gioi_han_so){
+    private static void randomSudoku(int[][] board, int[] so_dem, int gioi_han_tong, int gioi_han_o, int gioi_han_so){
         int i = 0;
         int x, y;
         Random random = new Random();
