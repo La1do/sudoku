@@ -6,8 +6,13 @@ public class frame {
 
 
         ImageIcon icon = new ImageIcon("icon.jpg");
+        // panels
+        //board
         board board = new board();
         board.setBackground(Color.black);
+        // button
+        Button_Right_Side Right_Side = new Button_Right_Side();
+        Right_Side.setBackground(Color.black);
         JFrame frame = new JFrame();
         frame.setIconImage(icon.getImage());
         frame.setSize(1024, 720);
@@ -20,6 +25,7 @@ public class frame {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         frame.add(board);
+        frame.add(Right_Side);
 
     }
 }

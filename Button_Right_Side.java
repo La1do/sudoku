@@ -1,37 +1,56 @@
+
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionListener;
 
-public class Button_Right_Side extends JPanel  {
-    private final int Width = 200;
+public class Button_Right_Side extends JPanel {
+    private final int Width = 250;
     private final int Height = 520;
-    Button_Right_Side(){
-        //button
+
+    Button_Right_Side() {
+        // buttons
         JButton Validate_B = new JButton("Validate");
-
-        Validate_B.setBackground(Color.GREEN);
-//        Validate_B.setSize(200, 70);
         JButton Hint_B = new JButton("Hint");
-        Hint_B.setBackground(Color.GREEN);
-//        Hint_B.setSize(200, 50);
         JButton Number_F_I_B = new JButton("Number-First Input");
-        Number_F_I_B.setBackground(Color.GREEN);
-//        Number_F_I_B.setSize(200, 50);
         JButton Notes_B = new JButton("Notes");
-        Notes_B.setBackground(Color.GREEN);
-        Notes_B.setSize(200, 50);
-        //config panel
-        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        this.setSize(this.Width,this.Height);
-        this.setBounds(1024 / 6 + 520 + 20,720 / 7,this.Width,this.Height);
-        this.add(Validate_B);
-        this.add(Box.createRigidArea(new Dimension(0,5)));
-        this.add(Hint_B);
-        this.add(Box.createRigidArea(new Dimension(0,20)));
-        this.add(Number_F_I_B);
-        this.add(Box.createRigidArea(new Dimension(0,5)));
-        this.add(Notes_B);
-        this.add(Box.createRigidArea(new Dimension(0,5)));
-    }
 
+        // Size buttons
+        Dimension buttonSize = new Dimension(250, 45);
+        Validate_B.setPreferredSize(buttonSize);
+        Validate_B.setMaximumSize(buttonSize);
+        Validate_B.setMinimumSize(buttonSize);
+
+        Hint_B.setPreferredSize(buttonSize);
+        Hint_B.setMaximumSize(buttonSize);
+        Hint_B.setMinimumSize(buttonSize);
+
+        Number_F_I_B.setPreferredSize(buttonSize);
+        Number_F_I_B.setMaximumSize(buttonSize);
+        Number_F_I_B.setMinimumSize(buttonSize);
+
+        Notes_B.setPreferredSize(buttonSize);
+        Notes_B.setMaximumSize(buttonSize);
+        Notes_B.setMinimumSize(buttonSize);
+
+        // background color of button
+        Validate_B.setBackground(Color.GREEN);
+        Hint_B.setBackground(Color.GREEN);
+        Number_F_I_B.setBackground(Color.GREEN);
+        Notes_B.setBackground(Color.GREEN);
+
+        // panel config
+        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        this.setPreferredSize(new Dimension(this.Width, this.Height));
+        this.setBounds(1024 / 6 + 520 + 20, 720 / 7, this.Width, this.Height);
+
+        //add
+        this.add(Validate_B);
+        this.add(Box.createRigidArea(new Dimension(0, 3)));
+        this.add(Hint_B);
+        this.add(Box.createRigidArea(new Dimension(0, 7)));
+        this.add(Number_F_I_B);
+        this.add(Box.createRigidArea(new Dimension(0, 3)));
+        this.add(Notes_B);
+    }
 }
+
+
