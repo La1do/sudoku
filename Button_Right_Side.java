@@ -2,17 +2,24 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class Button_Right_Side extends JPanel {
+import java.awt.event.ActionListener;
+
+public class Button_Right_Side extends JPanel  {
     private final int Width = 250;
     private final int Height = 520;
 
-    Button_Right_Side() {
+    Button_Right_Side(ActionListener listener) {
         // buttons
         JButton Validate_B = new JButton("Validate");
         JButton Hint_B = new JButton("Hint");
         JButton Number_F_I_B = new JButton("Number-First Input");
         JButton Notes_B = new JButton("Notes");
-
+        //
+        Validate_B.addActionListener(listener);
+        Hint_B.addActionListener(listener);
+        Number_F_I_B.addActionListener(listener);
+        Notes_B.addActionListener(listener);
+        //
         // Size buttons
         Dimension buttonSize = new Dimension(250, 45);
         Validate_B.setPreferredSize(buttonSize);
@@ -50,7 +57,10 @@ public class Button_Right_Side extends JPanel {
         this.add(Number_F_I_B);
         this.add(Box.createRigidArea(new Dimension(0, 3)));
         this.add(Notes_B);
+
     }
+
+
 }
 
 
