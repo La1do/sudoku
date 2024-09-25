@@ -28,7 +28,6 @@ public class Create_topic {
             copySolve(topic.first_board, topic.board);
             copy_sodem(topic.first_so_dem, topic.so_dem);
         }  
-        printBoard(); 
     }
     // xuất bảng
     private static void printBoard(){
