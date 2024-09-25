@@ -28,22 +28,22 @@ public class Button_Right_Side extends JPanel  {
         Validate_B.setPreferredSize(buttonSize);
         Validate_B.setMaximumSize(buttonSize);
         Validate_B.setMinimumSize(buttonSize);
-        Validate_B.setForcusable(False);
+        Validate_B.setFocusable(Boolean.FALSE);
 
         Hint_B.setPreferredSize(buttonSize);
         Hint_B.setMaximumSize(buttonSize);
         Hint_B.setMinimumSize(buttonSize);
-        Hint_B.setFocusable(false);
+        Hint_B.setFocusable(Boolean.FALSE);
 
         Number_F_I_B.setPreferredSize(buttonSize);
         Number_F_I_B.setMaximumSize(buttonSize);
         Number_F_I_B.setMinimumSize(buttonSize);
-        Number_F_I_B.setFocusable(false);
+        Number_F_I_B.setFocusable(Boolean.FALSE);
 
         Notes_B.setPreferredSize(buttonSize);
         Notes_B.setMaximumSize(buttonSize);
         Notes_B.setMinimumSize(buttonSize);
-        Notes_B.setFocusable(false);
+        Notes_B.setFocusable(Boolean.FALSE);
 
         // background color of button
         Validate_B.setBackground(new Color(0x211B1B));

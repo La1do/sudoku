@@ -19,7 +19,7 @@ public class Board_button extends JPanel {
                 buttons[i] = new JButton(Integer.toString(i + 1));
 //            buttons[i].setText();
                 buttons[i].setFont(stringFont);
-                button.setForcusable(False)
+                buttons[i].setFocusable(Boolean.FALSE);
                 buttons[i].setForeground(Color.WHITE);
                 buttons[i].setBackground(Color.BLACK);
                 this.add(buttons[i]);
@@ -31,7 +31,7 @@ public class Board_button extends JPanel {
 
             buttons[i] = new RoundButton(Integer.toString(i+1));
             buttons[i].setBorder(emptyBorder);
-            button.setForcusable(False)
+            buttons[i].setFocusable(Boolean.FALSE);
             buttons[i].setFont(stringFont);
             buttons[i].setForeground(Color.WHITE);
             buttons[i].setBackground(Color.BLACK);
