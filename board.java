@@ -7,10 +7,12 @@ public class board extends JPanel {
     public final int SIZE = 520;
     public final int SQ_SIZE = SIZE / 9;
 
+
     board() {
         this.setLayout(null);
         this.setSize(SIZE, SIZE);
         this.setBounds(1024 / 6, 720 / 7, SIZE, SIZE);
+
     }
 
     public void paint(Graphics g) {
@@ -23,8 +25,8 @@ public class board extends JPanel {
     void DrawBoard(Graphics g){
         Graphics2D g2d = (Graphics2D) g;
         for (int i = 0; i < (Dimention + 1); i++) {
-            g2d.setPaint(Color.DARK_GRAY);
-            g2d.setStroke(new BasicStroke(1));
+            g2d.setPaint(new Color(0xC9B6B6));
+            g2d.setStroke(new BasicStroke(2));
             if (i % 3 == 0) {
                 continue;
             }
@@ -32,8 +34,8 @@ public class board extends JPanel {
         }
         // columns
         for (int j = 0; j < (Dimention + 1); j++) {
-            g2d.setPaint(Color.DARK_GRAY);
-            g2d.setStroke(new BasicStroke(1));
+            g2d.setPaint(new Color(0xC9B6B6));
+            g2d.setStroke(new BasicStroke(2));
             if (j % 3 == 0) {
                 continue;
             }
@@ -43,7 +45,7 @@ public class board extends JPanel {
         for (int i = 1; i < Dimention; i++) {
             if (i % 3 == 0) {
                 g2d.setPaint(Color.BLUE);
-                g2d.setStroke(new BasicStroke(3));
+                g2d.setStroke(new BasicStroke(4));
                 g2d.drawLine(0, i * SQ_SIZE, SIZE, i * SQ_SIZE);
                 g2d.drawLine(i * SQ_SIZE, 0, i * SQ_SIZE, SIZE);
             }

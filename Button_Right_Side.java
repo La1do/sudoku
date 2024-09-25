@@ -4,11 +4,14 @@ import java.awt.*;
 
 import java.awt.event.ActionListener;
 
+
 public class Button_Right_Side extends JPanel  {
     private final int Width = 250;
     private final int Height = 520;
 
     Button_Right_Side(ActionListener listener) {
+
+
         // buttons
         JButton Validate_B = new JButton("Validate");
         JButton Hint_B = new JButton("Hint");
@@ -39,10 +42,14 @@ public class Button_Right_Side extends JPanel  {
         Notes_B.setMinimumSize(buttonSize);
 
         // background color of button
-        Validate_B.setBackground(Color.GREEN);
-        Hint_B.setBackground(Color.GREEN);
-        Number_F_I_B.setBackground(Color.GREEN);
-        Notes_B.setBackground(Color.GREEN);
+        Validate_B.setBackground(new Color(0x211B1B));
+        Hint_B.setBackground(new Color(0x211B1B));
+        Number_F_I_B.setBackground(new Color(0x211B1B));
+        Notes_B.setBackground(new Color(0x211B1B));
+        Validate_B.setForeground(Color.WHITE);
+        Hint_B.setForeground(Color.WHITE);
+        Number_F_I_B.setForeground(Color.WHITE);
+        Notes_B.setForeground(Color.WHITE);
 
         // panel config
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
@@ -57,6 +64,8 @@ public class Button_Right_Side extends JPanel  {
         this.add(Number_F_I_B);
         this.add(Box.createRigidArea(new Dimension(0, 3)));
         this.add(Notes_B);
+
+
 
     }
 
