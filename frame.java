@@ -49,8 +49,5 @@ public class frame extends JFrame implements ActionListener {
     }
     public static void main(String[] args) {
         new frame();
-        for(int i = 0 ; i < 9;i++){
-            System.out.println(Create_topic.topic.so_dem[i]);
-        }
     }
 }

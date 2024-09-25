@@ -45,8 +45,7 @@ public class Create_topic {
                 case "GOD" -> randomSudoku(topic.board,topic.so_dem , 80, 0, 9);
             }
             
-        }  
-        printBoard();
+        }
         
     }
     // xuất bảng
