@@ -4,32 +4,13 @@ import java.util.Scanner;
  
 public class Create_topic {
     private static final int GRID_SIZE = 9;//kích thước bảng
-    public static int[][]  board = {
-            {0, 0, 0, 0, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0, 0, 0},
-    };
-
-    public static int[][] tmp = {
-            {0, 0, 0, 0, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0, 0, 0},
-    };
+    public static int[][]  board = new int[GRID_SIZE][GRID_SIZE];
+    public static int[][] tmp = new int[GRID_SIZE][GRID_SIZE];
+    public static int[][] first_board = new int[GRID_SIZE][GRID_SIZE];
     public static int[] so_dem = new int[GRID_SIZE];
     static Create_topic topic = new Create_topic();
     public static int[][] solve = tmp; // sallow copy mảng tmp sang mảng solve vì nếu tmp thay đổi thì solve cũng có thể thay đổi
+    public static int[] first_so_dem = new int[GRID_SIZE];
     // hàm random số theo chế độ
     public static void Change(){
         Scanner scanner = new Scanner(System.in);
@@ -44,7 +25,8 @@ public class Create_topic {
                 case "master" -> randomSudoku(topic.board,topic.so_dem , 58, 2, 7);
                 case "GOD" -> randomSudoku(topic.board,topic.so_dem , 80, 0, 9);
             }
-            
+            copySolve(topic.first_board, topic.board);
+            copy_sodem(topic.first_so_dem, topic.so_dem);
         }  
         printBoard();
         
@@ -85,6 +67,11 @@ public class Create_topic {
             }
         }
     }
+    private static void copy_sodem(int[] first_so_dem, int[] so_dem){
+        for(int i=0; i<GRID_SIZE; i++){
+            first_so_dem[i] = so_dem[i];
+        }
+    }
     // kiểm tra hàng xem có bị trùng không
     private static boolean checkRow(int[][] board, int number, int row){
       for(int i = 0; i < GRID_SIZE; i++){
@@ -118,7 +105,7 @@ public class Create_topic {
         return false;
     }
     // kiểm tra toàn bộ
-    private static boolean checkSudoku(int[][] board, int number, int row, int colums){
+    public static boolean checkSudoku(int[][] board, int number, int row, int colums){
         return !checkRow(board, number, row) 
                && !checkColums(board, number, colums) 
                && !checkBox(board, number, row, colums);
