@@ -28,9 +28,11 @@ public class frame extends JFrame implements ActionListener {
         this.setLayout(null);
         this.setLocationRelativeTo(null);
         this.setVisible(true);
+        this.add(B_t);
         this.add(Board);
         this.add(Right_Side);
-        this.add(B_t);
+
+
 
     }
 
