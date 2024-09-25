@@ -5,33 +5,32 @@ import java.awt.event.ActionListener;
 
 public class frame extends JFrame implements ActionListener {
 
-    public static void main(String[] args) {
-       new frame();
-    }
-    board board = new board();
 
+    board Board = new board();
+    Board_button B_t = new Board_button();
     frame(){
         ImageIcon icon = new ImageIcon("icon.jpg");
         // panels
         //board
 
-        board.setBackground(Color.black);
+        Board.setBackground(new Color(0x372E2E));
         // button
         Button_Right_Side Right_Side = new Button_Right_Side(this);
-        Right_Side.setBackground(Color.black);
+        Right_Side.setBackground(new Color(0x372E2E));
         //frame config
         this.setIconImage(icon.getImage());
         this.setSize(1024, 720);
         this.setTitle("Sudoku");
-        this.getContentPane().setBackground(Color.black);
+        this.getContentPane().setBackground(new Color(0x372E2E));
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         this.setLayout(null);
         this.setLocationRelativeTo(null);
         this.setVisible(true);
-        this.add(board);
+        this.add(Board);
         this.add(Right_Side);
+        this.add(B_t);
 
     }
 
@@ -48,5 +47,10 @@ public class frame extends JFrame implements ActionListener {
             System.out.println("Notes button clicked");
         }
     }
-
+    public static void main(String[] args) {
+        new frame();
+        for(int i = 0 ; i < 9;i++){
+            System.out.println(Create_topic.topic.so_dem[i]);
+        }
+    }
 }
