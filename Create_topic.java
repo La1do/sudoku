@@ -25,16 +25,10 @@ public class Create_topic {
                 case "master" -> randomSudoku(topic.board,topic.so_dem , 58, 2, 7);
                 case "GOD" -> randomSudoku(topic.board,topic.so_dem , 80, 0, 9);
             }
-<<<<<<< HEAD
             copySolve(topic.first_board, topic.board);
             copy_sodem(topic.first_so_dem, topic.so_dem);
         }  
-        printBoard();
-=======
-            
-        }
->>>>>>> 5e88a55e0d9ec85e831fd2e4aa899a6abe549ee3
-        
+        printBoard(); 
     }
     // xuất bảng
     private static void printBoard(){
