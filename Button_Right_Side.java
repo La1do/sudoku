@@ -8,15 +8,18 @@ import java.awt.event.ActionListener;
 public class Button_Right_Side extends JPanel  {
     private final int Width = 250;
     private final int Height = 520;
+    JButton Validate_B = new JButton("Validate");
+    JButton Hint_B = new JButton("Hint");
+    JButton Number_F_I_B = new JButton("Number-First Input");
+    static JButton Notes_B = new JButton("Notes");
+
+    static boolean Notes_mode = false;
 
     Button_Right_Side(ActionListener listener) {
 
 
         // buttons
-        JButton Validate_B = new JButton("Validate");
-        JButton Hint_B = new JButton("Hint");
-        JButton Number_F_I_B = new JButton("Number-First Input");
-        JButton Notes_B = new JButton("Notes");
+
         //
         Validate_B.addActionListener(listener);
         Hint_B.addActionListener(listener);

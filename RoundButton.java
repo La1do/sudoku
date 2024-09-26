@@ -28,8 +28,8 @@ public class RoundButton extends JButton {
         } else {
             g.setColor(getBackground());
         }
-        g.fillOval(0, 0, getSize().width-1,
-                getSize().height-1);
+        g.fillOval(0, 0, getSize().width-2,
+                getSize().height-2);
 
 // This call will paint the label and the 
         // focus rectangle.

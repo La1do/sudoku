@@ -47,6 +47,13 @@ public class frame extends JFrame implements ActionListener {
             System.out.println("Number-First Input button clicked");
         } else if (source.getText().equals("Notes")) {
             System.out.println("Notes button clicked");
+            if(Button_Right_Side.Notes_mode == false){
+                Button_Right_Side.Notes_mode = true;
+            Button_Right_Side.Notes_B.setBackground(new Color(0x214CD7));
+            }else{
+                Button_Right_Side.Notes_mode = false;
+                Button_Right_Side.Notes_B.setBackground(new Color(0x211B1B));
+            }
         }
     }
     public static void main(String[] args) {
