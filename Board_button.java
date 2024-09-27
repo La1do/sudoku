@@ -1,12 +1,14 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.border.Border;
 
-public class Board_button extends JPanel {
+public class Board_button extends JPanel implements ActionListener {
     public static boolean mode_note = Button_Right_Side.Notes_mode;
     JPanel Square_button = new JPanel();
     JPanel Round_button = new JPanel();
-    Board_button(){
+    Board_button(ActionListener listener){
         //buttons panel config
         Square_button.setLayout(new GridLayout(3,3));
         Round_button.setLayout(new GridLayout(3,3));
@@ -29,6 +31,7 @@ public class Board_button extends JPanel {
                 buttons[i].setFocusable(Boolean.FALSE);
                 buttons[i].setForeground(Color.WHITE);
                 buttons[i].setBackground(Color.BLACK);
+                buttons[i].addActionListener(listener);
                 Square_button.add(buttons[i]);
             }
         Round_button.setBackground(new Color(0x372E2E));
@@ -42,6 +45,7 @@ public class Board_button extends JPanel {
             R_buttons[i].setFont(stringFont);
             R_buttons[i].setForeground(Color.WHITE);
             R_buttons[i].setBackground(Color.BLACK);
+            R_buttons[i].addActionListener(listener);
             Round_button.add(R_buttons[i]);
         }
 //        this.add(Square_button, BorderLayout.CENTER);
@@ -70,5 +74,12 @@ public class Board_button extends JPanel {
             this.revalidate();
             this.repaint();
         });
+    }
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == "1") {
+            System.out.println("1");
+        }
+
     }
 }

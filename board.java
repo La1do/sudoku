@@ -1,25 +1,38 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
-public class board extends JPanel {
+public class board extends JPanel implements KeyListener, MouseListener {
 
     public final int Dimention = 9;
     public final int SIZE = 520;
     public final int SQ_SIZE = SIZE / 9;
+    //Clicked Positon
+    private static  int CHOSED_SQ_X=3;
+    private static  int CHOSED_SQ_Y =1;
 
 
     board() {
         this.setLayout(null);
         this.setSize(SIZE, SIZE);
         this.setBounds(1024 / 6, 720 / 7, SIZE, SIZE);
+        this.addMouseListener(this);
+
 
     }
 
     public void paint(Graphics g) {
 
         super.paint(g);
-        DrawBoard(g);
+
         Draw_Sudoku_Quest(g);
+        if(CHOSED_SQ_X >= 0 && CHOSED_SQ_Y >= 0){
+            Draw_Input(g);
+        }
+        DrawBoard(g);
 
     }
     void DrawBoard(Graphics g){
@@ -78,5 +91,60 @@ public class board extends JPanel {
 //            g2d.drawString(tmp, i* SQ_SIZE + 16, 0* SQ_SIZE + SQ_SIZE - 11);
         }
     }
+    void Draw_Input(Graphics g){
+        Graphics2D g2d = (Graphics2D) g;
+        g2d.setPaint(new Color(0xA6C0F3));
+        System.out.println(CHOSED_SQ_X);
+        System.out.println(CHOSED_SQ_Y);
+        g2d.fillRect(CHOSED_SQ_X*SQ_SIZE, CHOSED_SQ_Y*SQ_SIZE, SQ_SIZE, SQ_SIZE);
+
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        // Your code here
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        // Your code here
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+        // Your code here
+    }
+
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+
+        System.out.println("Mouse Clicked");
+        CHOSED_SQ_X = e.getX()/SQ_SIZE;
+        CHOSED_SQ_Y = e.getY()/SQ_SIZE;
+        System.out.println(e.getX()/SQ_SIZE);
+        System.out.println(e.getY()/SQ_SIZE);
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+        // Your code here
+    }
+    @Override
+    public void mouseReleased(MouseEvent e) {
+        // Your code here
+    }
+
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+        // Your code here
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+        // Your code here
+    }
+
 
 }

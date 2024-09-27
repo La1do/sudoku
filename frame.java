@@ -7,7 +7,7 @@ public class frame extends JFrame implements ActionListener {
 
 
     board Board = new board();
-    Board_button B_t = new Board_button();
+    Board_button B_t = new Board_button(this);
     frame(){
         ImageIcon icon = new ImageIcon("icon.jpg");
         // panels
@@ -39,6 +39,7 @@ public class frame extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         JButton source = (JButton) e.getSource();
+        //Right_button_Side
         if (source.getText().equals("Validate")) {
             System.out.println("Validate button clicked");
         } else if (source.getText().equals("Hint")) {
@@ -53,6 +54,13 @@ public class frame extends JFrame implements ActionListener {
             }else{
                 Button_Right_Side.Notes_mode = false;
                 Button_Right_Side.Notes_B.setBackground(new Color(0x211B1B));
+            }
+
+        }
+        //Board_button
+        for(int i = 1; i <= 9 ; i++){
+            if(source.getText().equals(Integer.toString(i))){
+                System.out.println(i);
             }
         }
     }
