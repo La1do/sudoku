@@ -10,27 +10,27 @@ public class frame extends JFrame implements ActionListener {
     Board_button B_t = new Board_button(this);
     frame(){
         ImageIcon icon = new ImageIcon("icon.jpg");
-        // panels
+        //panels
         //board
 
         Board.setBackground(new Color(0x372E2E));
         // button
         Button_Right_Side Right_Side = new Button_Right_Side(this);
         Right_Side.setBackground(new Color(0x372E2E));
+        
         //frame config
+        this.add(B_t);
+        this.add(Board);
+        this.add(Right_Side);
         this.setIconImage(icon.getImage());
         this.setSize(1024, 720);
         this.setTitle("Sudoku");
         this.getContentPane().setBackground(new Color(0x372E2E));
         this.setResizable(false);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
         this.setLayout(null);
         this.setLocationRelativeTo(null);
         this.setVisible(true);
-        this.add(B_t);
-        this.add(Board);
-        this.add(Right_Side);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 
 
