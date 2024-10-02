@@ -83,8 +83,8 @@ public class board extends JPanel implements KeyListener, MouseListener {
         for(int i =0 ; i <9;i ++) {
             for(int j =0 ;j <9;j ++) {
 
-                String tmp = Integer.toString(Create_topic.topic.board[i][j]);
-                if (Create_topic.topic.board[i][j] != 0) {
+                String tmp = Integer.toString(Create_topic.getIndexBoard(i, j));
+                if (Create_topic.getIndexBoard(i, j) != 0) {
                     g2d.drawString(tmp, j * SQ_SIZE + 16, i * SQ_SIZE + SQ_SIZE - 11);
                 }
             }

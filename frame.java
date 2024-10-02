@@ -8,6 +8,8 @@ public class frame extends JFrame implements ActionListener {
 
     board Board = new board();
     Board_button B_t = new Board_button(this);
+    Button_Right_Side Right_Side = new Button_Right_Side(this);
+    mode Mode = new mode();
     frame(){
         ImageIcon icon = new ImageIcon("icon.jpg");
         //panels
@@ -15,13 +17,15 @@ public class frame extends JFrame implements ActionListener {
 
         Board.setBackground(new Color(0x372E2E));
         // button
-        Button_Right_Side Right_Side = new Button_Right_Side(this);
+        
+        
         Right_Side.setBackground(new Color(0x372E2E));
         
         //frame config
         this.add(B_t);
         this.add(Board);
         this.add(Right_Side);
+        this.add(Mode);
         this.setIconImage(icon.getImage());
         this.setSize(1024, 720);
         this.setTitle("Sudoku");
@@ -50,7 +54,7 @@ public class frame extends JFrame implements ActionListener {
             System.out.println("Notes button clicked");
             if(Button_Right_Side.Notes_mode == false){
                 Button_Right_Side.Notes_mode = true;
-            Button_Right_Side.Notes_B.setBackground(new Color(0x214CD7));
+                Button_Right_Side.Notes_B.setBackground(new Color(0x214CD7));
             }else{
                 Button_Right_Side.Notes_mode = false;
                 Button_Right_Side.Notes_B.setBackground(new Color(0x211B1B));
