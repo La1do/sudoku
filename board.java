@@ -18,7 +18,7 @@ public class board extends JPanel implements KeyListener, MouseListener {
     board() {
         this.setLayout(null);
         this.setSize(SIZE, SIZE);
-        this.setBounds(1024 / 6, 720 / 7, SIZE, SIZE);
+        this.setBounds(1024 / 6 + 40, 720 / 7, SIZE, SIZE);
         this.addMouseListener(this);
 
 

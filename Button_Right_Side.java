@@ -98,7 +98,7 @@ public class Button_Right_Side extends JPanel  {
         // panel config
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         this.setPreferredSize(new Dimension(this.Width, this.Height));
-        this.setBounds(1024 / 6 + 520 + 20, 720 / 7, this.Width, this.Height);
+        this.setBounds(1024 / 6 + 520 + 15 + 40, 720 / 7, this.Width, this.Height);
 
         //add
         this.add(Validate_B);

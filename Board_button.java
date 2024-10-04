@@ -17,7 +17,7 @@ public class Board_button extends JPanel implements ActionListener {
         //config
         this.setLayout(new BorderLayout());
         this.setSize(200,200);
-        this.setBounds(1024 / 6 + 520 + 20, 720 / 7 + 45*4 + 13 + 7,250, 250);
+        this.setBounds(1024 / 6 + 520 + 15 + 40, 720 / 7 + 45*4 + 13 + 7 ,250, 250);
         this.setBackground(Color.black);
         Font stringFont = new Font( "SansSerif", Font.BOLD, 50);
         JButton [] buttons = new JButton[9];

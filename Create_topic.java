@@ -108,7 +108,7 @@ public class Create_topic {
                 case "easy" -> randomSudoku(41, 4, 7);
                 case "medium" -> randomSudoku(47, 3, 7);
                 case "hard" -> randomSudoku(51, 3, 7);
-                case "master" -> randomSudoku(58, 2, 7);
+                case "evil" -> randomSudoku(58, 2, 7);
                 case "GOD" -> randomSudoku(80, 0, 9);
             }
             topic.setFirst_board(topic.getBoard());
