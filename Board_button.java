@@ -8,7 +8,7 @@ public class Board_button extends JPanel implements ActionListener {
     public static boolean mode_note = Button_Right_Side.Notes_mode;
     JPanel Square_button = new JPanel();
     JPanel Round_button = new JPanel();
-    Board_button(ActionListener listener){
+    Board_button(){
         //buttons panel config
         Square_button.setLayout(new GridLayout(3,3));
         Round_button.setLayout(new GridLayout(3,3));
@@ -31,7 +31,16 @@ public class Board_button extends JPanel implements ActionListener {
                 buttons[i].setFocusable(Boolean.FALSE);
                 buttons[i].setForeground(Color.WHITE);
                 buttons[i].setBackground(Color.BLACK);
-                buttons[i].addActionListener(listener);
+                buttons[i].addActionListener(new ActionListener() {
+                    public void actionPerformed(ActionEvent e) {
+                        JButton source = (JButton) e.getSource();
+                        for(int i = 1; i <= 9 ; i++){
+                            if(source.getText().equals(Integer.toString(i))){
+                                System.out.println(i);
+                            }
+                        }
+                    }
+                });
                 Square_button.add(buttons[i]);
             }
         Round_button.setBackground(new Color(0x372E2E));
@@ -45,7 +54,16 @@ public class Board_button extends JPanel implements ActionListener {
             R_buttons[i].setFont(stringFont);
             R_buttons[i].setForeground(Color.WHITE);
             R_buttons[i].setBackground(Color.BLACK);
-            R_buttons[i].addActionListener(listener);
+            R_buttons[i].addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    JButton source = (JButton) e.getSource();
+                    for(int i = 1; i <= 9 ; i++){
+                        if(source.getText().equals(Integer.toString(i))){
+                            System.out.println(i);
+                        }
+                    }
+                }
+            });
             Round_button.add(R_buttons[i]);
         }
 //        this.add(Square_button, BorderLayout.CENTER);
@@ -75,11 +93,13 @@ public class Board_button extends JPanel implements ActionListener {
             this.repaint();
         });
     }
+    
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == "1") {
             System.out.println("1");
         }
-
+        
     }
 }

@@ -4,8 +4,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-
-public class board extends JPanel implements KeyListener, MouseListener {
+public class Board extends JPanel implements KeyListener, MouseListener {
 
     public final int Dimention = 9;
     public final int SIZE = 520;
@@ -13,16 +12,17 @@ public class board extends JPanel implements KeyListener, MouseListener {
     //Clicked Positon
     private static  int CHOSED_SQ_X=3;
     private static  int CHOSED_SQ_Y =1;
-
-
-    board() {
+    static Create_topic create_topic = new Create_topic();
+    
+    Board() {
         this.setLayout(null);
         this.setSize(SIZE, SIZE);
         this.setBounds(1024 / 6 + 40, 720 / 7, SIZE, SIZE);
         this.addMouseListener(this);
-
-
+        this.setBackground(new Color(0x372E2E));
+        this.setOpaque(true);
     }
+
 
     public void paint(Graphics g) {
 
@@ -72,19 +72,20 @@ public class board extends JPanel implements KeyListener, MouseListener {
 
     }
     void Draw_Sudoku_Quest(Graphics g){
-        int[][] b = new int[0][];
-        int[][] s = new int[0][];
+        // int[][] b = new int[0][];
+        // int[][] s = new int[0][];
         Graphics2D g2d = (Graphics2D) g;
         g2d.setPaint(Color.white);
         Font stringFont = new Font( "SansSerif", Font.BOLD, 50);
         g2d.setFont(stringFont);
 //        topic.Change(b, s);
-        Create_topic.Change();
+        // Create_topic.Change();
+        
         for(int i =0 ; i <9;i ++) {
             for(int j =0 ;j <9;j ++) {
 
-                String tmp = Integer.toString(Create_topic.getIndexBoard(i, j));
-                if (Create_topic.getIndexBoard(i, j) != 0) {
+                String tmp = Integer.toString(create_topic.getIndexBoard(i, j));
+                if (create_topic.getIndexBoard(i, j) != 0) {
                     g2d.drawString(tmp, j * SQ_SIZE + 16, i * SQ_SIZE + SQ_SIZE - 11);
                 }
             }
@@ -94,11 +95,12 @@ public class board extends JPanel implements KeyListener, MouseListener {
     void Draw_Input(Graphics g){
         Graphics2D g2d = (Graphics2D) g;
         g2d.setPaint(new Color(0xA6C0F3));
-        System.out.println(CHOSED_SQ_X);
-        System.out.println(CHOSED_SQ_Y);
+        // System.out.println(CHOSED_SQ_X);
+        // System.out.println(CHOSED_SQ_Y);
         g2d.fillRect(CHOSED_SQ_X*SQ_SIZE, CHOSED_SQ_Y*SQ_SIZE, SQ_SIZE, SQ_SIZE);
 
     }
+
 
     @Override
     public void keyPressed(KeyEvent e) {

@@ -3,6 +3,7 @@ import javax.swing.*;
 import java.awt.*;
 
 import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 
 public class Button_Right_Side extends JPanel  {
@@ -15,16 +16,8 @@ public class Button_Right_Side extends JPanel  {
 
     static boolean Notes_mode = false;
 
-    Button_Right_Side(ActionListener listener) {
+    Button_Right_Side() {
 
-
-        // buttons
-
-        //
-        Validate_B.addActionListener(listener);
-        Hint_B.addActionListener(listener);
-        Number_F_I_B.addActionListener(listener);
-        Notes_B.addActionListener(listener);
         //
         // Size buttons
         Dimension buttonSize = new Dimension(250, 45);
@@ -99,6 +92,35 @@ public class Button_Right_Side extends JPanel  {
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         this.setPreferredSize(new Dimension(this.Width, this.Height));
         this.setBounds(1024 / 6 + 520 + 15 + 40, 720 / 7, this.Width, this.Height);
+
+        //set event
+        Validate_B.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                System.out.println("validate click");
+            }
+        });
+        Hint_B.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                System.out.println("hint click");
+            }
+        });
+        Number_F_I_B.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                System.out.println("number first input click");
+            }
+        });
+        Notes_B.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                System.out.println("note click");
+                if(Button_Right_Side.Notes_mode == false){
+                    Button_Right_Side.Notes_mode = true;
+                    Button_Right_Side.Notes_B.setBackground(new Color(0x214CD7));
+                }else{
+                    Button_Right_Side.Notes_mode = false;
+                    Button_Right_Side.Notes_B.setBackground(new Color(0x211B1B));
+                }
+            }
+        });
 
         //add
         this.add(Validate_B);

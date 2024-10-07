@@ -1,22 +1,18 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-public class frame extends JFrame implements ActionListener {
+public class frame extends JFrame {
 
 
-    board Board = new board();
-    Board_button B_t = new Board_button(this);
-    Button_Right_Side Right_Side = new Button_Right_Side(this);
-    mode Mode = new mode();
+    Board board = new Board();
+    Board_button B_t = new Board_button();
+    Button_Right_Side Right_Side = new Button_Right_Side();
+    Mode Mode = new Mode();
     Button_on_top top = new Button_on_top();
     frame(){
         ImageIcon icon = new ImageIcon("icon.jpg");
         //panels
         //board
-
-        Board.setBackground(new Color(0x372E2E));
         // button
         
         Mode.setBackground(new Color(0x372E2E));
@@ -25,7 +21,7 @@ public class frame extends JFrame implements ActionListener {
         
         //frame config
         this.add(B_t);
-        this.add(Board);
+        this.add(board);
         this.add(Right_Side);
         this.add(Mode);
         this.add(top);
@@ -38,41 +34,7 @@ public class frame extends JFrame implements ActionListener {
         this.setLocationRelativeTo(null);
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-
-
     }
+    
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        JButton source = (JButton) e.getSource();
-        //Right_button_Side
-        if (source.getText().equals("Validate")) {
-            System.out.println("Validate button clicked");
-        } else if (source.getText().equals("Hint")) {
-            System.out.println("Hint button clicked");
-        } else if (source.getText().equals("Number-First Input")) {
-            System.out.println("Number-First Input button clicked");
-        } else if (source.getText().equals("Notes")) {
-            System.out.println("Notes button clicked");
-            if(Button_Right_Side.Notes_mode == false){
-                Button_Right_Side.Notes_mode = true;
-                Button_Right_Side.Notes_B.setBackground(new Color(0x214CD7));
-            }else{
-                Button_Right_Side.Notes_mode = false;
-                Button_Right_Side.Notes_B.setBackground(new Color(0x211B1B));
-            }
-
-        }
-        //Board_button
-        for(int i = 1; i <= 9 ; i++){
-            if(source.getText().equals(Integer.toString(i))){
-                System.out.println(i);
-            }
-        }
-
-    }
-    public static void main(String[] args) {
-        new frame();
-    }
 }
