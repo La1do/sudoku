@@ -96,7 +96,7 @@ public class Board extends JPanel implements KeyListener, MouseListener {
         if(frame.B_t.getNum() != 0) {
             create_topic.setIndexBoard(CHOSED_SQ_Y, CHOSED_SQ_X, frame.B_t.getNum());
             create_topic.printBoard();
-            frame.B_t.setNum(0);
+//            frame.B_t.setNum(0);
         }
     }
 
