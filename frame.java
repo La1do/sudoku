@@ -5,7 +5,7 @@ public class frame extends JFrame {
 
 
     Board board = new Board();
-    Board_button B_t = new Board_button();
+    static Board_button B_t = new Board_button();
     Button_Right_Side Right_Side = new Button_Right_Side();
     Mode Mode = new Mode();
     Button_on_top top = new Button_on_top();

@@ -8,6 +8,16 @@ public class Board_button extends JPanel implements ActionListener {
     public static boolean mode_note = Button_Right_Side.Notes_mode;
     JPanel Square_button = new JPanel();
     JPanel Round_button = new JPanel();
+    private static int num = 0;
+
+    public static void setNum(int num) {
+        Board_button.num = num;
+    }
+
+    public static int getNum() {
+        return num;
+    }
+
     Board_button(){
         //buttons panel config
         Square_button.setLayout(new GridLayout(3,3));
@@ -36,7 +46,9 @@ public class Board_button extends JPanel implements ActionListener {
                         JButton source = (JButton) e.getSource();
                         for(int i = 1; i <= 9 ; i++){
                             if(source.getText().equals(Integer.toString(i))){
-                                System.out.println(i);
+                                num = i;
+                                System.out.println(num);
+
                             }
                         }
                     }
@@ -60,6 +72,7 @@ public class Board_button extends JPanel implements ActionListener {
                     for(int i = 1; i <= 9 ; i++){
                         if(source.getText().equals(Integer.toString(i))){
                             System.out.println(i);
+
                         }
                     }
                 }

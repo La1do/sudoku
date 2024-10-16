@@ -1,17 +1,15 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.*;
+
 public class Board extends JPanel implements KeyListener, MouseListener {
 
     public final int Dimention = 9;
     public final int SIZE = 520;
     public final int SQ_SIZE = SIZE / 9;
     //Clicked Positon
-    private static  int CHOSED_SQ_X=3;
-    private static  int CHOSED_SQ_Y =1;
+    private static  int CHOSED_SQ_X=-1;
+    private static  int CHOSED_SQ_Y =-1;
     static Create_topic create_topic = new Create_topic();
     
     Board() {
@@ -21,6 +19,8 @@ public class Board extends JPanel implements KeyListener, MouseListener {
         this.addMouseListener(this);
         this.setBackground(new Color(0x372E2E));
         this.setOpaque(true);
+        Timer timer = new Timer(60/1000,frame.B_t);
+        timer.start();
     }
 
 
@@ -29,10 +29,9 @@ public class Board extends JPanel implements KeyListener, MouseListener {
         super.paint(g);
 
         Draw_Sudoku_Quest(g);
-        if(CHOSED_SQ_X >= 0 && CHOSED_SQ_Y >= 0){
-            Draw_Input(g);
-        }
         DrawBoard(g);
+        Draw_Input(g);
+        repaint();
 
     }
     void DrawBoard(Graphics g){
@@ -94,11 +93,11 @@ public class Board extends JPanel implements KeyListener, MouseListener {
     }
     void Draw_Input(Graphics g){
         Graphics2D g2d = (Graphics2D) g;
-        g2d.setPaint(new Color(0xA6C0F3));
-        // System.out.println(CHOSED_SQ_X);
-        // System.out.println(CHOSED_SQ_Y);
-        g2d.fillRect(CHOSED_SQ_X*SQ_SIZE, CHOSED_SQ_Y*SQ_SIZE, SQ_SIZE, SQ_SIZE);
-
+        if(frame.B_t.getNum() != 0) {
+            create_topic.setIndexBoard(CHOSED_SQ_Y, CHOSED_SQ_X, frame.B_t.getNum());
+            create_topic.printBoard();
+            frame.B_t.setNum(0);
+        }
     }
 
 
@@ -122,6 +121,10 @@ public class Board extends JPanel implements KeyListener, MouseListener {
     public void mouseClicked(MouseEvent e) {
 
         System.out.println("Mouse Clicked");
+        if(CHOSED_SQ_X == CHOSED_SQ_X && CHOSED_SQ_Y == CHOSED_SQ_Y ) {
+            CHOSED_SQ_X = -1;
+            CHOSED_SQ_Y = -1;
+        }
         CHOSED_SQ_X = e.getX()/SQ_SIZE;
         CHOSED_SQ_Y = e.getY()/SQ_SIZE;
         System.out.println(e.getX()/SQ_SIZE);
