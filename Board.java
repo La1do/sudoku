@@ -30,7 +30,7 @@ public class Board extends JPanel implements KeyListener, MouseListener {
 
         Draw_Sudoku_Quest(g);
         DrawBoard(g);
-        Draw_Input(g);
+        Draw_Input();
         repaint();
 
     }
@@ -53,18 +53,18 @@ public class Board extends JPanel implements KeyListener, MouseListener {
             }
             g2d.drawLine(0, j * SQ_SIZE, SIZE, j * SQ_SIZE);
         }
-        //different line
+        //different line blue line
         for (int i = 1; i < Dimention; i++) {
             if (i % 3 == 0) {
-                g2d.setPaint(Color.BLUE);
+                g2d.setPaint(new Color(0x3399FF));
                 g2d.setStroke(new BasicStroke(4));
                 g2d.drawLine(0, i * SQ_SIZE, SIZE, i * SQ_SIZE);
                 g2d.drawLine(i * SQ_SIZE, 0, i * SQ_SIZE, SIZE);
             }
         }
 
-        // Draw the yellow border
-        g2d.setPaint(Color.BLUE);
+        // Draw the blue border
+        g2d.setPaint(new Color(0x3399FF));
         g2d.setStroke(new BasicStroke(5));
         // 50 is the arc width and height for rounded corners
         g2d.drawRoundRect(0, 0, SIZE, SIZE, 50, 50);
@@ -75,7 +75,7 @@ public class Board extends JPanel implements KeyListener, MouseListener {
         // int[][] s = new int[0][];
         Graphics2D g2d = (Graphics2D) g;
         g2d.setPaint(Color.white);
-        Font stringFont = new Font( "SansSerif", Font.BOLD, 50);
+        Font stringFont = new Font( "SansSerif", Font.PLAIN, 50);
         g2d.setFont(stringFont);
 //        topic.Change(b, s);
         // Create_topic.Change();
@@ -91,12 +91,12 @@ public class Board extends JPanel implements KeyListener, MouseListener {
 //            g2d.drawString(tmp, i* SQ_SIZE + 16, 0* SQ_SIZE + SQ_SIZE - 11);
         }
     }
-    void Draw_Input(Graphics g){
-        Graphics2D g2d = (Graphics2D) g;
-        if(frame.B_t.getNum() != 0) {
+    void Draw_Input(){
+
+        if(frame.B_t.getNum() != 0 && CHOSED_SQ_X != -1 && CHOSED_SQ_Y != -1) {
             create_topic.setIndexBoard(CHOSED_SQ_Y, CHOSED_SQ_X, frame.B_t.getNum());
             create_topic.printBoard();
-//            frame.B_t.setNum(0);
+            frame.B_t.setNum(0);
         }
     }
 
